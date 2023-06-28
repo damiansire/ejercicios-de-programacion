@@ -3,7 +3,7 @@ const nameField = document.getElementById("nameField");
 
 myForm.addEventListener("submit", function (event) {
   event.preventDefault();
-
+  debugger;
   // Eliminar mensajes de validación anteriores, si los hay
   const validationMessage = document.querySelectorAll(".validation-message");
   validationMessage.forEach(function (elemento) {

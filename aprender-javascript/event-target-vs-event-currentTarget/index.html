@@ -6,14 +6,14 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="outer">
-      <div id="inner">
+    <div id="yellow-div">
+      <div id="green-div">
         <button id="btn">Click me</button>
       </div>
     </div>
     <script>
-      const outer = document.getElementById("outer");
-      const inner = document.getElementById("inner");
+      const outer = document.getElementById("yellow-div");
+      const inner = document.getElementById("green-div");
       const btn = document.getElementById("btn");
 
       outer.addEventListener("click", function (event) {
@@ -33,4 +33,35 @@
     </script>
   </body>
 </html>
-l
+
+<style>
+  #yellow-div {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    width: 400px;
+    height: 400px;
+    background-color: #ffd700; /* Color dorado */
+    padding: 20px;
+  }
+
+  #green-div {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    width: 200px;
+    height: 200px;
+    background-color: #008000; /* Color verde */
+    padding: 20px;
+  }
+
+  #btn {
+    background-color: #ffa500;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+</style>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container">
+      <button class="btn">Button 1</button>
+      <button class="btn">Button 2</button>
+      <button class="btn">Button 3</button>
+    </div>
+
+    <script>
+      const container = document.getElementById("container");
+      const buttons = document.getElementsByClassName("btn");
+
+      container.addEventListener("click", function (event) {
+        const currentButton = event.currentTarget;
+        console.log(currentButton);
+        console.log("Current Button Text:", currentButton.textContent);
+      });
+
+      for (let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function (event) {
+          const clickedButton = event.target;
+          console.log("Clicked Button Text:", clickedButton.textContent);
+        });
+      }
+    </script>
+  </body>
+</html>

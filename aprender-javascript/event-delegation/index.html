@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="todo-list">
+      <li>Task 1</li>
+      <li>Task 2</li>
+      <li>Task 3</li>
+    </ul>
+    <script>
+      const todoList = document.getElementById("todo-list");
+
+      // Agregar controlador de eventos al elemento contenedor
+      todoList.addEventListener("click", function (event) {
+        // Verificar si el evento ocurrió en un elemento <li>
+        if (event.target.tagName === "LI") {
+          // Acceder al elemento contenedor (ul) utilizando currentTarget
+          const container = event.currentTarget;
+
+          // Acceder al elemento <li> en el que se hizo clic utilizando target
+          const clickedItem = event.target;
+
+          // Realizar acciones específicas en función del elemento <li> en el que se hizo clic
+          console.log("Se hizo clic en el elemento:", clickedItem.textContent);
+
+          // Ejemplo de manipulación adicional del elemento contenedor
+          container.style.backgroundColor = "lightblue";
+        }
+      });
+    </script>
+  </body>
+</html>
