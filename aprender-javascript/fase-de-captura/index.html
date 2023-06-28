@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ejemplo de Captura de Eventos</title>
+  </head>
+  <body>
+    <div id="contenedor">
+      <button id="boton">Haz clic aquí</button>
+    </div>
+
+    <script>
+      var contenedor = document.getElementById("contenedor");
+      var boton = document.getElementById("boton");
+
+      contenedor.addEventListener(
+        "click",
+        function () {
+          console.log("Captura: Contenedor");
+        },
+        true
+      );
+
+      boton.addEventListener(
+        "click",
+        function () {
+          console.log("Captura: Botón");
+        },
+        true
+      );
+    </script>
+  </body>
+</html>
