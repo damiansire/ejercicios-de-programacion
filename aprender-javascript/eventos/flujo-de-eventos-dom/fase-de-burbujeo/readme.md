@@ -1,0 +1,1 @@
+El flujo de eventos en el DOM sigue el modelo de "captura y burbujeo", y la fase de burbujeo es la fase predeterminada para la activación de los event listeners. Sin embargo, es posible cambiar el comportamiento predeterminado utilizando el método addEventListener() con el tercer parámetro opcional, llamado useCapture.
