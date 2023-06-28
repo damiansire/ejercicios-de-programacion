@@ -1,0 +1,44 @@
+ul {
+  padding: 2rem 2rem 1rem 2rem;
+}
+
+#todo-list li:nth-child(odd) {
+  background-color: #fce4ec;
+  color: #e91e63;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+#todo-list li:nth-child(even) {
+  background-color: #f3e5f5;
+  color: #9c27b0;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+#todo-list li:first-child {
+  background-color: #ede7f6;
+  color: #673ab7;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+#todo-list li:nth-child(4) {
+  background-color: #e8eaf6;
+  color: #3f51b5;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+#todo-list li:last-child {
+  background-color: #e3f2fd;
+  color: #2196f3;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+#todo-list button {
+  background-color: #ffffff;
+  color: #000000;
+  margin-top: 10px;
+}
