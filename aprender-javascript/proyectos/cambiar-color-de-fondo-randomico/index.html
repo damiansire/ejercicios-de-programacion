@@ -8,20 +8,17 @@
 </head>
 
 <body>
-
-    <button id="btn">Add task</button>
-
-
+    <button id="btn-random-color">Randomizar fondo</button>
     <script>
         function getRandomColor() {
-            const r = Math.floor(Math.random() * 256);
-            const g = Math.floor(Math.random() * 256);
-            const b = Math.floor(Math.random() * 256);
-            const hex = `rgb(${r},${g},${b})`
-            return hex;
+            const red = Math.floor(Math.random() * 256);
+            const green = Math.floor(Math.random() * 256);
+            const blue = Math.floor(Math.random() * 256);
+            return `rgb(${red},${green},${blue})`
         }
-        const btn = document.getElementById("btn");
-        btn.addEventListener("click", function (event) {
+
+        const btn = document.getElementById("btn-random-color");
+        btn.addEventListener("click", function () {
             document.body.style.backgroundColor = getRandomColor();
         })
     </script>
