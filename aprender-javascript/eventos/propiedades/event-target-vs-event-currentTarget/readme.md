@@ -1,3 +1,5 @@
+## Target vs current target
+
 En este ejemplo, tenemos un elemento outer que contiene un elemento inner, que a su vez contiene un botón btn. Cada elemento tiene un controlador de eventos click asociado.
 
 Cuando haces clic en el botón, se activarán los controladores de eventos en los elementos btn, inner y outer. Veamos la salida en la consola para cada caso:
