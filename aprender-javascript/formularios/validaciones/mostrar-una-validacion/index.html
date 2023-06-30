@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <form id="myForm" novalidate>
+    <label for="nameField">Nombre:</label>
+    <input type="text" id="nameField" placeholder="Nombre" required
+      minlength="3" pattern="^(?!.*\\d)[a-zA-Z\s]+$"
+      title="Please enter a valid name">
+    <button type="submit">Enviar</button>
+  </form>
+  <script>
+    const myForm = document.getElementById("myForm");
+    const nameField = document.getElementById("nameField");
+
+    myForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const validationMessage = document.querySelector("#myForm .validation-message");
+      if (validationMessage) {
+        validationMessage.remove();
+      }
+
+      const validations = [
+        {
+          condition: nameField.validity.valueMissing,
+          message: "Please enter your name",
+        },
+        {
+          condition: nameField.validity.tooShort,
+          message: "Name must be at least 3 characters long",
+        },
+        {
+          condition: nameField.validity.patternMismatch,
+          message: "Name cannot contain numbers or special characters",
+        },
+        {
+          condition: nameField.validity.valid && !nameField.value.includes(" "),
+          message: "Please enter your full name",
+        },
+      ];
+
+      for (let validation of validations) {
+        if (validation.condition) {
+          mostrarMensajeValidacion(validation.message);
+          nameField.focus();
+          return;
+        }
+      }
+
+      myForm.submit();
+    });
+
+    const mostrarMensajeValidacion = (mensaje) => {
+      const mensajeElemento = document.createElement("p");
+      mensajeElemento.classList.add("validation-message");
+      mensajeElemento.textContent = mensaje;
+      mensajeElemento.setAttribute("aria-live", "assertive");
+      mensajeElemento.setAttribute("role", "alert");
+      myForm.appendChild(mensajeElemento);
+    };
+
+  </script>
+</body>
+
+</html>

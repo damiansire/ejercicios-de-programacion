@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario con validación en JavaScript</title>
+    <style>
+        .validation-message {
+            display: none;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="registerForm" novalidate>
+        <label for="nameField">Nombre:</label>
+        <input type="text" id="nameField" placeholder="Nombre" minlength="3"
+            required />
+        <div id="elementoFijo">
+            <p id="mensajeValidacion" class="validation-message">Mensaje de
+                validación
+            </p>
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+
+        const validateNameField = (nameField) => {
+            if (nameField.validity.valueMissing) {
+                return "El nombre no puede ser vacio";
+            }
+            else if (nameField.validity.tooShort) {
+                return "El nombre tiene que tener al menos 3 caracteres";
+            }
+            return null
+        }
+
+        function mostrarMensajeValidacion(mensaje) {
+            const mensajeElemento = document.getElementById("mensajeValidacion");
+            mensajeElemento.textContent = mensaje;
+            mensajeElemento.style.display = "block";
+        }
+
+        function ocultarMensajeValidacion() {
+            const mensajeElemento = document.getElementById("mensajeValidacion");
+            mensajeElemento.style.display = "none";
+        }
+
+        const registerForm = document.getElementById("registerForm");
+
+        registerForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            const form = event.target;
+            const { nameField } = form.elements;
+            const validationMessage = validateNameField(nameField);
+            if (validationMessage) {
+                mostrarMensajeValidacion(validationMessage);
+            } else {
+                ocultarMensajeValidacion();
+                //Mandas al servidor
+            }
+        })
+    </script>
+</body>
+
+</html>
