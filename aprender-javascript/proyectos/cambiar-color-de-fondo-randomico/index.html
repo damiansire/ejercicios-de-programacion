@@ -5,22 +5,57 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+        .color-preview-text {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 100px;
+            user-select: none;
+            cursor: pointer;
+        }
+
+        body {
+            background-color: blue;
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
 </head>
 
 <body>
-    <button id="btn-random-color">Randomizar fondo</button>
+    <div class="container">
+        <div class="color-preview">
+            <span class="color-preview-text" id="color-text-btn">#F4A21E</span>
+        </div>
+    </div>
+
     <script>
         function getRandomColor() {
             const red = Math.floor(Math.random() * 256);
             const green = Math.floor(Math.random() * 256);
             const blue = Math.floor(Math.random() * 256);
-            return `rgb(${red},${green},${blue})`
+
+            const redHex = red.toString(16).padStart(2, '0');
+            const greenHex = green.toString(16).padStart(2, '0');
+            const blueHex = blue.toString(16).padStart(2, '0');
+
+            const randomColor = `#${redHex}${greenHex}${blueHex}`
+
+            return randomColor;
         }
 
-        const btn = document.getElementById("btn-random-color");
-        btn.addEventListener("click", function () {
-            document.body.style.backgroundColor = getRandomColor();
-        })
+        const btn = document.getElementById("color-text-btn");
+        btn.addEventListener("click", function (event) {
+            const randomColor = getRandomColor();
+            document.body.style.backgroundColor = randomColor;
+            event.target.textContent = randomColor
+
+
+        });
     </script>
 </body>
 
