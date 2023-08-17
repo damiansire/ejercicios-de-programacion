@@ -51,10 +51,12 @@ const timeUnits = {
     minutes: 60 * 1000,
     seconds: 1000,
 };
+
 /**
  * Calcula el tiempo restante en la unidad de tiempo especificada hasta la fecha objetivo.
  * @param {number} targetDate - La fecha objetivo en milisegundos desde el 1 de enero de 1970.
- * @param {keyof TimeUnits} unit - La unidad de tiempo en la que se desea obtener el resultado (por defecto: 'days').
+ * @param {string} unit - La unidad de tiempo en la que se desea obtener el resultado (por defecto: 'days').
+ *Valores posibles: 'days', 'hours', 'minutes', 'seconds'.
  * @returns {number} El tiempo restante en la unidad de tiempo especificada.
  * @throws {Error} Si se especifica una unidad de tiempo no válida.
  */
