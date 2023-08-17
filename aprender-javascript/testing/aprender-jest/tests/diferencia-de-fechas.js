@@ -17,9 +17,8 @@ const remainingDaysToDate = (targetDate) => {
     const secondsInMinute = 60;
     const minutesInHours = 60;
     const hoursInDay = 24;
-    1000 /  
-
-    return remainingMiliseconds;
+    const remainingDays = remainingMiliseconds / miliSecondsInSecond / secondsInMinute / minutesInHours / hoursInDay;
+    return remainingDays;
 }
 
 
